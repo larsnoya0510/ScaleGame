@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
+        android:id="@+id/frameLauoutImagePool"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginTop="32dp"
@@ -66,4 +67,23 @@
             app:srcCompat="@android:color/holo_orange_light"
             tools:visibility="visible" />
     </FrameLayout>
+
+    <Switch
+        android:id="@+id/switchRotateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="100dp"
+        android:text="Rotate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        app:layout_constraintBottom_toBottomOf="@+id/switchRotateView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/switchRotateView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
