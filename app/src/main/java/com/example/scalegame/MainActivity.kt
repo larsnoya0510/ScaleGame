@@ -7,15 +7,20 @@ import android.util.DisplayMetrics
 import android.widget.SeekBar
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.LinearInterpolator
+import android.view.animation.RotateAnimation
 import android.widget.ImageView
 
 
 class MainActivity : AppCompatActivity() {
-
+    var lastRate=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        buttonReset.setOnClickListener {
+            frameLauoutImagePool.setRotation(0F)
+        }
         seekBar.setOnSeekBarChangeListener(object:SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 adjX(imageViewA,p1)
@@ -23,6 +28,9 @@ class MainActivity : AppCompatActivity() {
                 adjY(imageViewC,p1)
                 adjX(imageViewD,p1)
                 adjScale(imageView3,p1)
+                if(switchRotateView.isChecked==true ){
+                    frameLauoutImagePool.setRotation(360F*(p1/100F))
+                }
             }
             override fun onStartTrackingTouch(p0: SeekBar?) {
             }
